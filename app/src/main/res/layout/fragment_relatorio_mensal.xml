@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".view.RelatorioMensalFragment">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/but_mes_anterior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
+
+            <TextView
+                android:id="@+id/tv_mes"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:gravity="center_vertical"/>
+
+
+            <ImageButton
+                android:id="@+id/but_mes_posterior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+        </TableRow>
+
+
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_horas"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Horas:"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/tv_horas_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Horas:"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"/>
+
+
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>

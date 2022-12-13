@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Relatorio de Serviço de Campo 2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Relatório Mensal</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_relatorio_mensal">Relatório Mensal</string>
+    <string name="menu_relatorio_detalhado">Relatório Detalhado</string>
+
+    <string name="mais">+</string>
+    <string name="menos">-</string>
+    <string name="horas">Horas</string>
+    <string name="minutos">Minutos</string>
+    <string name="relatorio">Relatório</string>
+    <string name="publicacoes">Publicações</string>
+    <string name="videos">Vídeos Mostrados</string>
+    <string name="revisitas">Revisitas</string>
+    <string name="estudos">Estudos Bíblicos</string>
+    <string name="data">Data</string>
+    <string name="salvar_button">Salvar</string>
+    <string name="button_delete">Excluir</string>
+    <string name="relatorio_list">Relatório Detalhado</string>
+    <string name="relatorio_updated_successfully">Registro atualizado com sucesso!</string>
+    <string name="relatorio_error_to_update">Erro ao tentar atualizar registro!</string>
+    <string name="relatorio_inserted_successfully">Registro salvo com sucesso!</string>
+    <string name="relatorio_error_to_insert">Erro ao tentar salvar registro!</string>
+    <string name="relatorio_deleted_successfully">Relatório deletado com sucesso!</string>
+    <string name="relatorio_error_to_delete">Erro ao tentar exluir Relatório!</string>
+    <string name="relatorioList_menu_delete">Relatório detalhado</string>
+    <string name="relatorio_salvo">Relatório salvo com sucesso!</string>
+    <string name="adicionar_registro">Adicionar Registro</string>
+    <string name="editar_registro">Editar Registro</string>
+    <string name="relatorio_editado">Relatório editado com sucesso!</string>
+</resources>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".view.RelatorioFormActivity">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/data"
+                    android:enabled="false"
+                    android:inputType="textCapSentences" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/but_data_mais"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_add_24"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/but_data_menos"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_remove_24" />
+            </LinearLayout>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_horas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_horas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/horas"
+                    android:enabled="false"
+                    android:inputType="textCapSentences" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/but_horas_mais"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_add_24"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/but_horas_menos"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_remove_24" />
+
+
+            </LinearLayout>
+
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_publicacoes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_publicacoes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/publicacoes"
+                    android:enabled="false"
+                    android:inputType="textCapSentences" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/but_publicacoes_mais"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_add_24"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/but_publicacoes_menos"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_remove_24" />
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_videos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_videos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/videos"
+                    android:enabled="false"
+                    android:inputType="textCapSentences" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/but_videos_mais"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_add_24"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/but_videos_menos"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_remove_24" />
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_revisitas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_revisitas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/revisitas"
+                    android:enabled="false"
+                    android:inputType="textCapSentences" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/but_revisitas_mais"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_add_24"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/but_revisitas_menos"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_remove_24" />
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_estudos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_estudos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/estudos"
+                    android:enabled="false"
+                    android:inputType="textCapSentences" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/but_estudos_mais"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_add_24"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/but_estudos_menos"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_baseline_remove_24" />
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/salvar_button" />
+</LinearLayout>
