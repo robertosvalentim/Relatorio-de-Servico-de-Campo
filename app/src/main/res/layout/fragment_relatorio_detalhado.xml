@@ -6,10 +6,48 @@
     android:layout_height="match_parent"
     android:padding="8dp"
     tools:context=".view.RelatorioDetalhadoFragment">
+    <TableLayout
+        android:id="@+id/table_mes_ano"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:stretchColumns="1">
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/but_mes_anterior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
+
+            <TextView
+                android:id="@+id/tv_ano_mes"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+
+            <ImageButton
+                android:id="@+id/but_mes_posterior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>
+
+        </TableRow>
+
+
+    </TableLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_relatorio_detalhado"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/table_mes_ano"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

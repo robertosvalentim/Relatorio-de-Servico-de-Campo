@@ -5,22 +5,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.beto.h2.relatoriodeserviodecampo2.R
 import com.beto.h2.relatoriodeserviodecampo2.constants.DataBaseConstants
 import com.beto.h2.relatoriodeserviodecampo2.databinding.FragmentRelatorioDetalhadoBinding
 import com.beto.h2.relatoriodeserviodecampo2.util.Tempo
 import com.beto.h2.relatoriodeserviodecampo2.view.adapter.RelatorioDetalhadoAdapter
 import com.beto.h2.relatoriodeserviodecampo2.view.listener.OnRelatorioListener
 import com.beto.h2.relatoriodeserviodecampo2.viewmodel.RelatorioDetalhadoViewModel
-import com.beto.h2.relatoriodeserviodecampo2.viewmodel.RelatorioMensalViewModel
 import java.util.*
 
-class RelatorioDetalhadoFragment : Fragment() {
+class RelatorioDetalhadoFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentRelatorioDetalhadoBinding? = null
     private lateinit var viewModel: RelatorioDetalhadoViewModel
@@ -45,11 +42,15 @@ class RelatorioDetalhadoFragment : Fragment() {
         //Adapter
         binding.recyclerRelatorioDetalhado.adapter = adapter
 
+        binding.tvAnoMes.setText("${Tempo.getMesString(month)}/$year")
+        binding.butMesAnterior.setOnClickListener(this)
+        binding.butMesPosterior.setOnClickListener(this)
+
         val listener = object : OnRelatorioListener {
             override fun onClick(id: Long) {
                 val intent = Intent(context, RelatorioFormActivity::class.java)
                 val bundle = Bundle()
-                bundle.putLong(DataBaseConstants.ID,id)
+                bundle.putLong(DataBaseConstants.ID, id)
                 intent.putExtras(bundle)
                 startActivity(intent)
             }
@@ -63,10 +64,6 @@ class RelatorioDetalhadoFragment : Fragment() {
 
         adapter.attachListener(listener)
 
-        viewModel.getRelatorioAnoMesDetalhado(year, month)
-
-
-
         observer()
 
         return binding.root
@@ -74,11 +71,11 @@ class RelatorioDetalhadoFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.getRelatorioAnoMesDetalhado(year, month)
+        viewModel.getRelatorioAnoMesDetalhado(ano = year, mes = month)
     }
 
     private fun observer() {
-        viewModel.relatorios.observe(viewLifecycleOwner) {  lista->
+        viewModel.relatorios.observe(viewLifecycleOwner) { lista ->
             adapter.updateRelatorios(lista)
         }
     }
@@ -86,5 +83,30 @@ class RelatorioDetalhadoFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.but_mes_anterior -> {
+                if (month == 1) {
+                    month = 12
+                    year--
+                } else {
+                    month--
+                }
+                viewModel.getRelatorioAnoMesDetalhado(ano = year, mes = month)
+                binding.tvAnoMes.setText("${Tempo.getMesString(month)}/$year")
+            }
+            R.id.but_mes_posterior -> {
+                if (month == 12) {
+                    month = 1
+                    year++
+                } else {
+                    month++
+                }
+                viewModel.getRelatorioAnoMesDetalhado(ano = year, mes = month)
+                binding.tvAnoMes.setText("${Tempo.getMesString(month)}/$year")
+            }
+        }
     }
 }

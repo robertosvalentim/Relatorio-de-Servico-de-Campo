@@ -18,20 +18,22 @@
             android:layout_height="wrap_content">
 
             <ImageButton
-                android:id="@+id/but_mes_anterior"
+                android:id="@+id/but_mes_anterior_rel_geral"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
 
             <TextView
-                android:id="@+id/tv_mes"
+                android:id="@+id/tv_ano_mes"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:gravity="center_vertical"/>
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
 
 
             <ImageButton
-                android:id="@+id/but_mes_posterior"
+                android:id="@+id/but_mes_posteriorrel_geral"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_baseline_arrow_forward_ios_24"/>

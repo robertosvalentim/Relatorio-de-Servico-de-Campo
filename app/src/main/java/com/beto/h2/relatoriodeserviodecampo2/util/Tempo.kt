@@ -14,7 +14,7 @@ class Tempo {
             var horas = 0
             var minutos = 0
             var segundos = 0
-            var milessegundos:Long = 0
+            var milessegundos: Long = 0
 
             for (rel in relatorios) {
                 horas += rel.horas.toString().subSequence(0, 2).toString().toInt()
@@ -22,9 +22,9 @@ class Tempo {
                 segundos += rel.horas.toString().subSequence(6, 8).toString().toInt()
             }
 
-            milessegundos = segundos*1000 as Long
-            milessegundos+= minutos*60000 as Long
-            milessegundos+= horas*3600*1000 as Long
+            milessegundos = (segundos * 1000).toLong()
+            milessegundos += (minutos * 60000).toLong()
+            milessegundos += (horas * 3600 * 1000).toLong()
 
             return Time(milessegundos)
         }
@@ -32,6 +32,50 @@ class Tempo {
         fun dataSqlParaPadaoPtBr(data: Date): String {
             val df: DateFormat = SimpleDateFormat("dd/MM/yyyy")
             return df.format(data)
+        }
+
+        fun getMesString(mes: Int): String {
+            return when (mes) {
+                1 -> {
+                    "Jan"
+                }
+                2 -> {
+                    "Fer"
+                }
+                3 -> {
+                    "Mar"
+                }
+                4 -> {
+                    "Abr"
+                }
+                5 -> {
+                    "Mai"
+                }
+                6 -> {
+                    "Jun"
+                }
+                7 -> {
+                    "Jul"
+                }
+                8 -> {
+                    "Ago"
+                }
+                9 -> {
+                    "Set"
+                }
+                10 -> {
+                    "Out"
+                }
+                11 -> {
+                    "Nov"
+                }
+                12 -> {
+                    "Dez"
+                }
+                else -> {
+                    "Erro"
+                }
+            }
         }
 
         fun getDiaDaSemana(data: Date): String {
