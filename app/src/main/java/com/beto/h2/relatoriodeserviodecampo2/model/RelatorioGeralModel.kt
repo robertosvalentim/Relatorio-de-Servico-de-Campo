@@ -1,9 +1,8 @@
 package com.beto.h2.relatoriodeserviodecampo2.model
 
-import java.sql.Time
 
 data class RelatorioGeralModel(
-    var horas: Time,
+    var horas: String,
     var publicacoes: Int = 0,
     var videos: Int = 0,
     var revisitas: Int = 0,

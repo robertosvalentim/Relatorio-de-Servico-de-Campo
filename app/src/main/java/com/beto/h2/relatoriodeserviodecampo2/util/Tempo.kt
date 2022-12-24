@@ -2,31 +2,67 @@ package com.beto.h2.relatoriodeserviodecampo2.util
 
 import com.beto.h2.relatoriodeserviodecampo2.model.RelatorioModel
 import java.sql.Date
-import java.sql.Time
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
 class Tempo {
     companion object {
-
-        fun somarHoras(relatorios: List<RelatorioModel>): Time {
+        fun intToHoras(horas: Int, minutos: Int, segundos: Int): String{
+            var horasAux=""
+            if(horas<10){
+                horasAux="0$horas:"
+            }else{
+                horasAux="$horas:"
+            }
+            if(minutos<10){
+                horasAux+="0$minutos:"
+            }else{
+                horasAux+="$minutos:"
+            }
+            if(segundos<10){
+                horasAux+="0$segundos"
+            }else{
+                horasAux+="$segundos"
+            }
+            return horasAux
+        }
+        fun somarHoras(relatorios: List<RelatorioModel>): String {
             var horas = 0
             var minutos = 0
             var segundos = 0
-            var milessegundos: Long = 0
+            //var milessegundos: Long = 0
 
             for (rel in relatorios) {
-                horas += rel.horas.toString().subSequence(0, 2).toString().toInt()
-                minutos += rel.horas.toString().subSequence(3, 5).toString().toInt()
-                segundos += rel.horas.toString().subSequence(6, 8).toString().toInt()
+                horas += rel.horas.subSequence(0, 2).toString().toInt()
+                minutos += rel.horas.subSequence(3, 5).toString().toInt()
+                segundos += rel.horas.subSequence(6, 8).toString().toInt()
             }
 
+            if (segundos >= 60) {
+                val min = Math.floor(segundos.toDouble() / 60).toInt()
+                val seg = segundos - (min * 60)
+
+                minutos += min
+                segundos = seg
+            }
+            if (minutos >= 60) {
+                val hor = Math.floor(minutos.toDouble() / 60).toInt()
+                val min = minutos - (hor * 60)
+
+                horas += hor
+                minutos = min
+            }
+
+            return intToHoras(horas,minutos,segundos)
+            /*
             milessegundos = (segundos * 1000).toLong()
             milessegundos += (minutos * 60000).toLong()
             milessegundos += (horas * 3600 * 1000).toLong()
 
             return Time(milessegundos)
+
+             */
         }
 
         fun dataSqlParaPadaoPtBr(data: Date): String {

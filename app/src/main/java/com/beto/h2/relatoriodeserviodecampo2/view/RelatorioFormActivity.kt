@@ -15,7 +15,6 @@ import com.beto.h2.relatoriodeserviodecampo2.model.RelatorioModel
 import com.beto.h2.relatoriodeserviodecampo2.util.Tempo
 import com.beto.h2.relatoriodeserviodecampo2.viewmodel.RelatorioFormViewModel
 import java.sql.Date
-import java.sql.Time
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -79,16 +78,27 @@ class RelatorioFormActivity : AppCompatActivity(), View.OnClickListener {
             binding!!.inputRevisitas.setText(rel.revisitas.toString())
             binding!!.inputEstudos.setText(rel.estudos.toString())
 
-            selectedYear = rel.data.toString().subSequence(0,4).toString().toInt()
-            selectedMonth = rel.data.toString().subSequence(5,7).toString().toInt()
-            selectedDay = rel.data.toString().subSequence(8,10).toString().toInt()
-            selectedHour = rel.horas.toString().subSequence(0,2).toString().toInt()
-            selectedMinute = rel.horas.toString().subSequence(3,5).toString().toInt()
+            selectedYear = rel.data.toString().subSequence(0, 4).toString().toInt()
+            selectedMonth = rel.data.toString().subSequence(5, 7).toString().toInt()
+            selectedDay = rel.data.toString().subSequence(8, 10).toString().toInt()
+            selectedHour = rel.horas.toString().subSequence(0, 2).toString().toInt()
+            selectedMinute = rel.horas.toString().subSequence(3, 5).toString().toInt()
 
             publicacoes = rel.publicacoes
             videos = rel.videos
             revisitas = rel.revisitas
             estudos = rel.estudos
+        })
+
+        viewModel.relatorioInserido.observe(this, androidx.lifecycle.Observer {
+            if (it) {
+                Toast.makeText(this, R.string.relatorio_salvo, Toast.LENGTH_LONG).show()
+            }
+        })
+        viewModel.relatorioEditado.observe(this, androidx.lifecycle.Observer {
+            if (it) {
+                Toast.makeText(this, R.string.relatorio_editado, Toast.LENGTH_LONG).show()
+            }
         })
 
     }
@@ -99,13 +109,9 @@ class RelatorioFormActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button_save -> {
                 if (!verificarCamposVazios()) {
                     if (relatorioEditar) {
-                        if(viewModel.editar(relatorioId,getValues())){
-                            Toast.makeText(this, R.string.relatorio_editado, Toast.LENGTH_LONG).show()
-                        }
+                        viewModel.editar(relatorioId, getValues())
                     } else {
-                        if (viewModel.insert(getValues())) {
-                            Toast.makeText(this, R.string.relatorio_salvo, Toast.LENGTH_LONG).show()
-                        }
+                        viewModel.insert(getValues())
                     }
                     limparFormulario()
                     finish()
@@ -207,7 +213,7 @@ class RelatorioFormActivity : AppCompatActivity(), View.OnClickListener {
         return RelatorioModel(
             0,
             Date.valueOf("$selectedYear-$selectedMonth-$selectedDay"),
-            Time.valueOf("$selectedHour:$selectedMinute:00"),
+            Tempo.intToHoras(selectedHour,selectedMinute,0),
             publicacoes,
             videos,
             revisitas,

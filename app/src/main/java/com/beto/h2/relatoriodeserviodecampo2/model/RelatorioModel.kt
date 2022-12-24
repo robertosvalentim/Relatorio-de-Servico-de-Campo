@@ -6,7 +6,7 @@ import java.sql.Time
 data class RelatorioModel(
     var id: Long = 0,
     var data: Date,
-    var horas: Time,
+    var horas: String,
     var publicacoes: Int = 0,
     var videos: Int = 0,
     var revisitas: Int = 0,

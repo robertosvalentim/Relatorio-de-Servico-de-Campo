@@ -16,13 +16,19 @@ class RelatorioFormViewModel(
     private val _relatorio = MutableLiveData<RelatorioModel>()
     val relatorio: LiveData<RelatorioModel> = _relatorio
 
+    private val _relatorioEditado = MutableLiveData<Boolean>(false)
+    val relatorioEditado: LiveData<Boolean> = _relatorioEditado
 
-    fun insert(relatorio: RelatorioModel): Boolean {
-        return repository.insert(relatorio)
+    private val _relatorioInserido = MutableLiveData<Boolean>(false)
+    val relatorioInserido: LiveData<Boolean> = _relatorioInserido
+
+
+    fun insert(relatorio: RelatorioModel) {
+        _relatorioInserido.value = repository.insert(relatorio)
     }
 
-    fun editar(id:Long,relatorio: RelatorioModel): Boolean{
-        return repository.update(id,relatorio)
+    fun editar(id:Long,relatorio: RelatorioModel){
+        _relatorioEditado.value = repository.update(id,relatorio)
     }
 
     fun get(id: Long) {

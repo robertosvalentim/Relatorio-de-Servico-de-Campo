@@ -28,7 +28,7 @@ class RelatorioRepository private constructor(context: Context) {
 
             val values = ContentValues()
             values.put(DataBaseConstants.COLUNM_DATA, relatorio.data.toString())
-            values.put(DataBaseConstants.COLUNM_HORAS, relatorio.horas.toString())
+            values.put(DataBaseConstants.COLUNM_HORAS, relatorio.horas)
             values.put(DataBaseConstants.COLUNM_PUBLICACOES, relatorio.publicacoes)
             values.put(DataBaseConstants.COLUNM_VIDEOS, relatorio.videos)
             values.put(DataBaseConstants.COLUNM_REVISITAS, relatorio.revisitas)
@@ -47,7 +47,7 @@ class RelatorioRepository private constructor(context: Context) {
             val values = ContentValues()
 
             values.put(DataBaseConstants.COLUNM_DATA, relatorio.data.toString())
-            values.put(DataBaseConstants.COLUNM_HORAS, relatorio.horas.toString())
+            values.put(DataBaseConstants.COLUNM_HORAS, relatorio.horas)
             values.put(DataBaseConstants.COLUNM_PUBLICACOES, relatorio.publicacoes)
             values.put(DataBaseConstants.COLUNM_VIDEOS, relatorio.videos)
             values.put(DataBaseConstants.COLUNM_REVISITAS, relatorio.revisitas)
@@ -111,7 +111,7 @@ class RelatorioRepository private constructor(context: Context) {
                     val relatorio = RelatorioModel(
                         id,
                         Date.valueOf(data),
-                        Time.valueOf(horas),
+                        horas,
                         publicacoes,
                         videos,
                         revisitas,
@@ -166,7 +166,7 @@ class RelatorioRepository private constructor(context: Context) {
                     relatorio = RelatorioModel(
                         id,
                         Date.valueOf(data),
-                        Time.valueOf(horas),
+                        horas,
                         publicacoes,
                         videos,
                         revisitas,
